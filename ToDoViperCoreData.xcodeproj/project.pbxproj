@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		910DBF2B2C7CA9E600DB7FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF2A2C7CA9E600DB7FC8 /* AppDelegate.swift */; };
 		910DBF2D2C7CA9E600DB7FC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF2C2C7CA9E600DB7FC8 /* SceneDelegate.swift */; };
-		910DBF2F2C7CA9E600DB7FC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF2E2C7CA9E600DB7FC8 /* ViewController.swift */; };
-		910DBF322C7CA9E600DB7FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910DBF302C7CA9E600DB7FC8 /* Main.storyboard */; };
 		910DBF352C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF332C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld */; };
 		910DBF372C7CA9E800DB7FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 910DBF362C7CA9E800DB7FC8 /* Assets.xcassets */; };
 		910DBF3A2C7CA9E800DB7FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910DBF382C7CA9E800DB7FC8 /* LaunchScreen.storyboard */; };
 		910DBF452C7CA9E800DB7FC8 /* ToDoViperCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF442C7CA9E800DB7FC8 /* ToDoViperCoreDataTests.swift */; };
 		910DBF4F2C7CA9E800DB7FC8 /* ToDoViperCoreDataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF4E2C7CA9E800DB7FC8 /* ToDoViperCoreDataUITests.swift */; };
 		910DBF512C7CA9E800DB7FC8 /* ToDoViperCoreDataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF502C7CA9E800DB7FC8 /* ToDoViperCoreDataUITestsLaunchTests.swift */; };
+		910DBF642C7CB74800DB7FC8 /* TasklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */; };
+		910DBF662C7CB76000DB7FC8 /* TasklistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */; };
+		910DBF682C7CB77200DB7FC8 /* TasklistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */; };
+		910DBF6A2C7CB79F00DB7FC8 /* TasklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */; };
+		910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,6 @@
 		910DBF272C7CA9E600DB7FC8 /* ToDoViperCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoViperCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		910DBF2A2C7CA9E600DB7FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		910DBF2C2C7CA9E600DB7FC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		910DBF2E2C7CA9E600DB7FC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		910DBF312C7CA9E600DB7FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		910DBF342C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoViperCoreData.xcdatamodel; sourceTree = "<group>"; };
 		910DBF362C7CA9E800DB7FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		910DBF392C7CA9E800DB7FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,11 @@
 		910DBF4A2C7CA9E800DB7FC8 /* ToDoViperCoreDataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoViperCoreDataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		910DBF4E2C7CA9E800DB7FC8 /* ToDoViperCoreDataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViperCoreDataUITests.swift; sourceTree = "<group>"; };
 		910DBF502C7CA9E800DB7FC8 /* ToDoViperCoreDataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViperCoreDataUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistViewController.swift; sourceTree = "<group>"; };
+		910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistInteractor.swift; sourceTree = "<group>"; };
+		910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistPresenter.swift; sourceTree = "<group>"; };
+		910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistModel.swift; sourceTree = "<group>"; };
+		910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +107,13 @@
 		910DBF292C7CA9E600DB7FC8 /* ToDoViperCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				910DBF612C7CB70100DB7FC8 /* Services */,
+				910DBF602C7CB6F900DB7FC8 /* Core */,
+				910DBF5F2C7CB6EF00DB7FC8 /* Entities */,
+				910DBF5E2C7CB6BF00DB7FC8 /* Modules */,
+				910DBF5D2C7CB51C00DB7FC8 /* Resourcers */,
 				910DBF2A2C7CA9E600DB7FC8 /* AppDelegate.swift */,
 				910DBF2C2C7CA9E600DB7FC8 /* SceneDelegate.swift */,
-				910DBF2E2C7CA9E600DB7FC8 /* ViewController.swift */,
-				910DBF302C7CA9E600DB7FC8 /* Main.storyboard */,
-				910DBF362C7CA9E800DB7FC8 /* Assets.xcassets */,
-				910DBF382C7CA9E800DB7FC8 /* LaunchScreen.storyboard */,
-				910DBF3B2C7CA9E800DB7FC8 /* Info.plist */,
 				910DBF332C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld */,
 			);
 			path = ToDoViperCoreData;
@@ -128,6 +134,57 @@
 				910DBF502C7CA9E800DB7FC8 /* ToDoViperCoreDataUITestsLaunchTests.swift */,
 			);
 			path = ToDoViperCoreDataUITests;
+			sourceTree = "<group>";
+		};
+		910DBF5D2C7CB51C00DB7FC8 /* Resourcers */ = {
+			isa = PBXGroup;
+			children = (
+				910DBF3B2C7CA9E800DB7FC8 /* Info.plist */,
+				910DBF362C7CA9E800DB7FC8 /* Assets.xcassets */,
+				910DBF382C7CA9E800DB7FC8 /* LaunchScreen.storyboard */,
+			);
+			path = Resourcers;
+			sourceTree = "<group>";
+		};
+		910DBF5E2C7CB6BF00DB7FC8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				910DBF622C7CB71800DB7FC8 /* Tasklist */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		910DBF5F2C7CB6EF00DB7FC8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		910DBF602C7CB6F900DB7FC8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		910DBF612C7CB70100DB7FC8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		910DBF622C7CB71800DB7FC8 /* Tasklist */ = {
+			isa = PBXGroup;
+			children = (
+				910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */,
+				910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */,
+				910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */,
+				910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */,
+				910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */,
+			);
+			path = Tasklist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +293,6 @@
 			files = (
 				910DBF3A2C7CA9E800DB7FC8 /* LaunchScreen.storyboard in Resources */,
 				910DBF372C7CA9E800DB7FC8 /* Assets.xcassets in Resources */,
-				910DBF322C7CA9E600DB7FC8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				910DBF2F2C7CA9E600DB7FC8 /* ViewController.swift in Sources */,
+				910DBF642C7CB74800DB7FC8 /* TasklistViewController.swift in Sources */,
+				910DBF682C7CB77200DB7FC8 /* TasklistPresenter.swift in Sources */,
+				910DBF662C7CB76000DB7FC8 /* TasklistInteractor.swift in Sources */,
 				910DBF352C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld in Sources */,
 				910DBF2B2C7CA9E600DB7FC8 /* AppDelegate.swift in Sources */,
+				910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */,
+				910DBF6A2C7CB79F00DB7FC8 /* TasklistModel.swift in Sources */,
 				910DBF2D2C7CA9E600DB7FC8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +361,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		910DBF302C7CA9E600DB7FC8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				910DBF312C7CA9E600DB7FC8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		910DBF382C7CA9E800DB7FC8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,10 +495,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q3W8P7J6DJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoViperCoreData/Info.plist;
+				INFOPLIST_FILE = ToDoViperCoreData/Resourcers/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,10 +525,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q3W8P7J6DJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ToDoViperCoreData/Info.plist;
+				INFOPLIST_FILE = ToDoViperCoreData/Resourcers/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
