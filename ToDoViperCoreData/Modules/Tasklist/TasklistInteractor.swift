@@ -24,7 +24,6 @@ final class TasklistInteractor: ITasklistInteractor {
 	}
 
 	func fetchTasks() {
-		// Fetch from API first
 		apiService.fetchTasks { [weak self] result in
 			switch result {
 			case .success(let tasksDTO):
@@ -36,28 +35,26 @@ final class TasklistInteractor: ITasklistInteractor {
 					for taskDTO in tasksDTO {
 						_ = self?.coreDataManager.createTask(
 							title: taskDTO.todo,
-							details: "",  // Assuming there is no 'details' in the API
+							details: "",
 							isCompleted: taskDTO.completed
 						)
 					}
 
-					// Fetch from CoreData to update presenter
 					let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
 
 					DispatchQueue.main.async {
-						self?.presenter?.displayTasks(allTasks)
+						self?.presenter?.displayTasks(tasks: allTasks)
 					}
 				}
 
 			case .failure(let error):
 				print("Failed to fetch tasks from API: \(error)")
 
-				// Fetch from CoreData in case of API failure
 				DispatchQueue.global(qos: .background).async {
 					let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
 
 					DispatchQueue.main.async {
-						self?.presenter?.displayTasks(allTasks)
+						self?.presenter?.displayTasks(tasks: allTasks)
 					}
 				}
 			}

@@ -9,7 +9,7 @@ import Foundation
 
 protocol ITasklistPresenter: AnyObject {
 	func fetchTasks()
-	func displayTasks(_ tasks: [TaskToDo])
+	func displayTasks(tasks: [TaskToDo])
 	func didSelectTask(_ task: TaskToDo)
 	func didDeleteTask(_ task: TaskToDo)
 	func didAddTask(title: String, description: String)
@@ -17,30 +17,28 @@ protocol ITasklistPresenter: AnyObject {
 
 final class TasklistPresenter: ITasklistPresenter {
 
-	weak var view: ITasklistViewController?  // Ссылка на View (UI)
-	var interactor: ITasklistInteractor?  // Ссылка на Interactor (бизнес-логика)
-	var router: ITasklistRouter?  // Ссылка на Router (навигация)
+	weak var view: ITasklistViewController?
+	var interactor: ITasklistInteractor?
+	var router: ITasklistRouter?
 
-	func displayTasks(_ tasks: [TaskToDo]) {
+	func displayTasks(tasks: [TaskToDo]) {
 		view?.displayTasks(tasks)
 	}
-	// Метод для загрузки задач
+
 	func fetchTasks() {
-		interactor?.fetchTasks()  // Запрашиваем у Interactor загрузить задачи
+		interactor?.fetchTasks()
 	}
 
-	// Метод, который вызывается при выборе задачи
 	func didSelectTask(_ task: TaskToDo) {
-		router?.navigateToTaskDetail(task)  // Осуществляем навигацию к экрану детализации задачи
+		router?.navigateToTaskDetail(task)
 	}
 
 	// Метод для удаления задачи
 	func didDeleteTask(_ task: TaskToDo) {
-		interactor?.deleteTask(task)  // Удаляем задачу через Interactor
+		interactor?.deleteTask(task)
 	}
 
-	// Метод для добавления новой задачи
 	func didAddTask(title: String, description: String) {
-		interactor?.addTask(title: title, description: description)  // Создаем новую задачу через Interactor
+		interactor?.addTask(title: title, description: description)
 	}
 }

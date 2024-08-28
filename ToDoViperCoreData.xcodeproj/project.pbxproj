@@ -18,7 +18,6 @@
 		910DBF642C7CB74800DB7FC8 /* TasklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */; };
 		910DBF662C7CB76000DB7FC8 /* TasklistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */; };
 		910DBF682C7CB77200DB7FC8 /* TasklistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */; };
-		910DBF6A2C7CB79F00DB7FC8 /* TasklistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */; };
 		910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */; };
 		910DBF6E2C7F46AE00DB7FC8 /* TasklistAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */; };
 		910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */; };
@@ -60,7 +59,6 @@
 		910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistViewController.swift; sourceTree = "<group>"; };
 		910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistInteractor.swift; sourceTree = "<group>"; };
 		910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistPresenter.swift; sourceTree = "<group>"; };
-		910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistModel.swift; sourceTree = "<group>"; };
 		910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistRouter.swift; sourceTree = "<group>"; };
 		910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistAssembler.swift; sourceTree = "<group>"; };
 		910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -120,13 +118,11 @@
 			isa = PBXGroup;
 			children = (
 				910DBF612C7CB70100DB7FC8 /* Services */,
-				910DBF602C7CB6F900DB7FC8 /* Core */,
 				910DBF5F2C7CB6EF00DB7FC8 /* Entities */,
 				910DBF5E2C7CB6BF00DB7FC8 /* Modules */,
 				910DBF5D2C7CB51C00DB7FC8 /* Resourcers */,
 				910DBF2A2C7CA9E600DB7FC8 /* AppDelegate.swift */,
 				910DBF2C2C7CA9E600DB7FC8 /* SceneDelegate.swift */,
-				910DBF332C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld */,
 			);
 			path = ToDoViperCoreData;
 			sourceTree = "<group>";
@@ -169,15 +165,9 @@
 		910DBF5F2C7CB6EF00DB7FC8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				910DBF332C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		910DBF602C7CB6F900DB7FC8 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		910DBF612C7CB70100DB7FC8 /* Services */ = {
@@ -195,7 +185,6 @@
 				910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */,
 				910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */,
 				910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */,
-				910DBF692C7CB79F00DB7FC8 /* TasklistModel.swift */,
 				910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */,
 				910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */,
 			);
@@ -340,7 +329,6 @@
 				910DBF2B2C7CA9E600DB7FC8 /* AppDelegate.swift in Sources */,
 				910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */,
 				910DBF8E2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift in Sources */,
-				910DBF6A2C7CB79F00DB7FC8 /* TasklistModel.swift in Sources */,
 				9195900E2C7F5FF20038D146 /* APIService.swift in Sources */,
 				910DBF6E2C7F46AE00DB7FC8 /* TasklistAssembler.swift in Sources */,
 				910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */,
