@@ -1,5 +1,5 @@
 //
-//  ToDoTask+CoreDataClass.swift
+//  TaskToDo+CoreDataClass.swift
 //  ToDoViperCoreData
 //
 //  Created by Константин Натаров on 28.08.2024.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(ToDoTask)
-public class ToDoTask: NSManagedObject {
+@objc(TaskToDo)
+public class TaskToDo: NSManagedObject {
 
 }
