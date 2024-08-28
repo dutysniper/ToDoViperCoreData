@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ITasklistViewController {
+protocol ITasklistViewController: AnyObject {
 	func displayTasks(_ tasks: [Task])
 	func addTaskToView(_ task: Task)
 	func updateTaskInView(_ task: Task)
@@ -89,6 +89,24 @@ extension TasklistViewController: UITableViewDelegate, UITableViewDataSource {
 		return cell
 	}
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+
+		let task = tasks[indexPath.row]
+
+		presenter?.didSelectTask(task)
+	}
+
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let task = tasks[indexPath.row]
+			presenter?.didDeleteTask(task)
+
+			tasks.remove(at: indexPath.row)
+
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+	}
 
 }
 
@@ -132,7 +150,22 @@ private extension TasklistViewController {
 			textField.placeholder = "Task description"
 		}
 
-		
+		let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+			guard let titleField = alertController.textFields?[0],
+				  let descriptionField = alertController.textFields?[1],
+				  let title = titleField.text, !title.isEmpty else { return }
+
+			let description = descriptionField.text ?? ""
+
+			self.presenter?.didAddTask(title: title, description: description)
+		}
+
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+		alertController.addAction(saveAction)
+		alertController.addAction(cancelAction)
+
+		present(alertController, animated: true, completion: nil)
 	}
 }
 

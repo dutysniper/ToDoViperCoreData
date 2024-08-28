@@ -7,32 +7,36 @@
 
 import Foundation
 
-protocol ITasklistPresenter {
-	func presentTasks(_ tasks: [Task])
-	func didAddTask(_ task: Task)
-	func didUpdateTask(_ task: Task)
+protocol ITasklistPresenter: AnyObject {
+	func fetchTasks()
+	func didSelectTask(_ task: Task)
 	func didDeleteTask(_ task: Task)
+	func didAddTask(title: String, description: String)
 }
 
 final class TasklistPresenter: ITasklistPresenter {
 
-	var view: ITasklistViewController?
+	weak var view: ITasklistViewController?  // Ссылка на View (UI)
+	var interactor: ITasklistInteractor?  // Ссылка на Interactor (бизнес-логика)
+	var router: ITasklistRouter?  // Ссылка на Router (навигация)
 
-	func presentTasks(_ tasks: [Task]) {
-
+	// Метод для загрузки задач
+	func fetchTasks() {
+		interactor?.fetchTasks()  // Запрашиваем у Interactor загрузить задачи
 	}
 
-	func didAddTask(_ task: Task) {
-
+	// Метод, который вызывается при выборе задачи
+	func didSelectTask(_ task: Task) {
+		router?.navigateToTaskDetail(task)  // Осуществляем навигацию к экрану детализации задачи
 	}
 
-	func didUpdateTask(_ task: Task) {
-
-	}
-
+	// Метод для удаления задачи
 	func didDeleteTask(_ task: Task) {
-		
+		interactor?.deleteTask(task)  // Удаляем задачу через Interactor
 	}
 
-
+	// Метод для добавления новой задачи
+	func didAddTask(title: String, description: String) {
+		interactor?.addTask(title: title, description: description)  // Создаем новую задачу через Interactor
+	}
 }

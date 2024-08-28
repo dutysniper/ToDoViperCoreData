@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let window = UIWindow(windowScene: scene)
 
 		let navigationController = UINavigationController()
-		navigationController.pushViewController(TasklistViewController(), animated: true)
+		navigationController.pushViewController(TasklistAssembler.assembleModule(), animated: true)
 
 		window.rootViewController = navigationController
 		window.makeKeyAndVisible()
