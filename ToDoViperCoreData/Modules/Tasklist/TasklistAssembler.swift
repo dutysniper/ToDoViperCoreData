@@ -14,9 +14,11 @@ protocol ITasklistAssembler {
 final class TasklistAssembler: ITasklistAssembler {
 
 	static func assembleModule() -> UIViewController {
+		let coreDataManager = CoreDataManager()
+		let apiService = APIService()
 		let viewController = TasklistViewController()
 		let presenter = TasklistPresenter()
-		let interactor = TasklistInteractor()
+		let interactor = TasklistInteractor(coreDataManager: coreDataManager, apiService: apiService)
 		let router = TasklistRouter()
 
 		viewController.presenter = presenter

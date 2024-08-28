@@ -24,6 +24,7 @@
 		910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */; };
 		910DBF8E2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF8C2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift */; };
 		910DBF8F2C7F581000DB7FC8 /* TaskToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF8D2C7F580F00DB7FC8 /* TaskToDo+CoreDataProperties.swift */; };
+		9195900E2C7F5FF20038D146 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195900D2C7F5FF20038D146 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		910DBF8C2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		910DBF8D2C7F580F00DB7FC8 /* TaskToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9195900D2C7F5FF20038D146 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */,
+				9195900D2C7F5FF20038D146 /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */,
 				910DBF8E2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift in Sources */,
 				910DBF6A2C7CB79F00DB7FC8 /* TasklistModel.swift in Sources */,
+				9195900E2C7F5FF20038D146 /* APIService.swift in Sources */,
 				910DBF6E2C7F46AE00DB7FC8 /* TasklistAssembler.swift in Sources */,
 				910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */,
 				910DBF2D2C7CA9E600DB7FC8 /* SceneDelegate.swift in Sources */,

@@ -5,24 +5,31 @@
 //  Created by Константин Натаров on 28.08.2024.
 //
 
-import UIKit
 import CoreData
+import UIKit
+
+@objc(ToDoTask)
+public class ToDoTask: NSManagedObject {}
 
 protocol ICoreDataManager {
-	func createTask(title: String, details: String, isCompleted: Bool) -> ToDoTask?
-	func fetchAllTasks() -> [ToDoTask]
-	func deleteTask(_ task: ToDoTask)
-	func updateTask(_ task: ToDoTask, title: String, details: String, isCompleted: Bool)
-	func fetchTask(byId id: String) -> ToDoTask?
+	func createTask(title: String, details: String, isCompleted: Bool) -> TaskToDo?
+	func fetchAllTasks() -> [TaskToDo]
+	func deleteTask(_ task: TaskToDo)
+	func updateTask(_ task: TaskToDo, title: String, details: String, isCompleted: Bool)
+	func fetchTask(byId id: String) -> TaskToDo?
 }
 
 final class CoreDataManager: ICoreDataManager {
 
 	private var persistentContainer: NSPersistentContainer {
-		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-			fatalError("Could not retrieve persistent container from AppDelegate")
+		var container: NSPersistentContainer!
+		DispatchQueue.main.sync {
+			guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+				fatalError("Could not retrieve persistent container from AppDelegate")
+			}
+			container = appDelegate.persistentContainer
 		}
-		return appDelegate.persistentContainer
+		return container
 	}
 
 	private var managedContext: NSManagedObjectContext {
@@ -30,9 +37,9 @@ final class CoreDataManager: ICoreDataManager {
 	}
 
 	// MARK: - CRUD операции
-	func createTask(title: String, details: String, isCompleted: Bool) -> ToDoTask? {
-		let entity = NSEntityDescription.entity(forEntityName: "Task", in: managedContext)!
-		let task = ToDoTask(entity: entity, insertInto: managedContext)
+	func createTask(title: String, details: String, isCompleted: Bool) -> TaskToDo? {
+		let entity = NSEntityDescription.entity(forEntityName: "TaskToDo", in: managedContext)!
+		let task = NSManagedObject(entity: entity, insertInto: managedContext) as! TaskToDo
 
 		// Генерация уникального идентификатора для новой задачи
 		task.id = UUID().uuidString
@@ -50,8 +57,9 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	func fetchAllTasks() -> [ToDoTask] {
-		let fetchRequest: NSFetchRequest<ToDoTask> = ToDoTask.fetchRequest()
+	// Получение всех задач
+	func fetchAllTasks() -> [TaskToDo] {
+		let fetchRequest = NSFetchRequest<TaskToDo>(entityName: "TaskToDo")
 
 		do {
 			let tasks = try managedContext.fetch(fetchRequest)
@@ -62,7 +70,8 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	func deleteTask(_ task: ToDoTask) {
+	// Удаление задачи
+	func deleteTask(_ task: TaskToDo) {
 		managedContext.delete(task)
 
 		do {
@@ -72,7 +81,8 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	func updateTask(_ task: ToDoTask, title: String, details: String, isCompleted: Bool) {
+	// Обновление задачи
+	func updateTask(_ task: TaskToDo, title: String, details: String, isCompleted: Bool) {
 		task.title = title
 		task.details = details
 		task.isCompleted = isCompleted
@@ -84,8 +94,9 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	func fetchTask(byId id: String) -> ToDoTask? {
-		let fetchRequest: NSFetchRequest<ToDoTask> = ToDoTask.fetchRequest()
+	// Получение задачи по ID
+	func fetchTask(byId id: String) -> TaskToDo? {
+		let fetchRequest = NSFetchRequest<TaskToDo>(entityName: "TaskToDo")
 		fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
 		do {

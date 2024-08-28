@@ -18,7 +18,7 @@ extension TaskToDo {
     @NSManaged public var id: String?
     @NSManaged public var title: String?
     @NSManaged public var details: String?
-    @NSManaged public var isComleted: Bool
+    @NSManaged public var isCompleted: Bool
     @NSManaged public var createdAt: Date?
 
 }
