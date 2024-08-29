@@ -17,6 +17,7 @@ protocol ICoreDataManager {
 	func deleteTask(_ task: TaskToDo)
 	func updateTask(_ task: TaskToDo, title: String, details: String, isCompleted: Bool)
 	func fetchTask(byId id: String) -> TaskToDo?
+	func saveContext()
 }
 
 final class CoreDataManager: ICoreDataManager {
@@ -41,13 +42,11 @@ final class CoreDataManager: ICoreDataManager {
 		let entity = NSEntityDescription.entity(forEntityName: "TaskToDo", in: managedContext)!
 		let task = NSManagedObject(entity: entity, insertInto: managedContext) as! TaskToDo
 
-		// Генерация уникального идентификатора для новой задачи
 		task.id = UUID().uuidString
 		task.title = title
 		task.details = details
 		task.isCompleted = isCompleted
 		task.createdAt = Date()
-
 		do {
 			try managedContext.save()
 			return task
@@ -57,7 +56,6 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	// Получение всех задач
 	func fetchAllTasks() -> [TaskToDo] {
 		let fetchRequest = NSFetchRequest<TaskToDo>(entityName: "TaskToDo")
 
@@ -70,31 +68,18 @@ final class CoreDataManager: ICoreDataManager {
 		}
 	}
 
-	// Удаление задачи
 	func deleteTask(_ task: TaskToDo) {
 		managedContext.delete(task)
-
-		do {
-			try managedContext.save()
-		} catch let error as NSError {
-			print("Could not delete. \(error), \(error.userInfo)")
-		}
+		saveContext() // Используем метод saveContext
 	}
 
-	// Обновление задачи
 	func updateTask(_ task: TaskToDo, title: String, details: String, isCompleted: Bool) {
 		task.title = title
 		task.details = details
 		task.isCompleted = isCompleted
-
-		do {
-			try managedContext.save()
-		} catch let error as NSError {
-			print("Could not update. \(error), \(error.userInfo)")
-		}
+		saveContext() // Используем метод saveContext
 	}
 
-	// Получение задачи по ID
 	func fetchTask(byId id: String) -> TaskToDo? {
 		let fetchRequest = NSFetchRequest<TaskToDo>(entityName: "TaskToDo")
 		fetchRequest.predicate = NSPredicate(format: "id == %@", id)
@@ -105,6 +90,16 @@ final class CoreDataManager: ICoreDataManager {
 		} catch let error as NSError {
 			print("Could not fetch. \(error), \(error.userInfo)")
 			return nil
+		}
+	}
+
+	func saveContext() {
+		if managedContext.hasChanges {
+			do {
+				try managedContext.save()
+			} catch let error as NSError {
+				print("Could not save context. \(error), \(error.userInfo)")
+			}
 		}
 	}
 }

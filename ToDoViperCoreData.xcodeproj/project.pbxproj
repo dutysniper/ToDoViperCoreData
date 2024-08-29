@@ -18,11 +18,15 @@
 		910DBF642C7CB74800DB7FC8 /* TasklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */; };
 		910DBF662C7CB76000DB7FC8 /* TasklistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */; };
 		910DBF682C7CB77200DB7FC8 /* TasklistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */; };
-		910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */; };
+		910DBF6C2C7CB7AE00DB7FC8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6B2C7CB7AE00DB7FC8 /* Router.swift */; };
 		910DBF6E2C7F46AE00DB7FC8 /* TasklistAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */; };
 		910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */; };
 		910DBF8E2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF8C2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift */; };
 		910DBF8F2C7F581000DB7FC8 /* TaskToDo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910DBF8D2C7F580F00DB7FC8 /* TaskToDo+CoreDataProperties.swift */; };
+		9124085B2C807F2800208727 /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9124085A2C807F2800208727 /* TaskEditorViewController.swift */; };
+		9124085D2C807F3C00208727 /* TaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9124085C2C807F3C00208727 /* TaskEditorInteractor.swift */; };
+		9124085F2C807F4B00208727 /* TaskEditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9124085E2C807F4B00208727 /* TaskEditorPresenter.swift */; };
+		912408612C807F7300208727 /* TaskEditorAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408602C807F7300208727 /* TaskEditorAssembler.swift */; };
 		9195900E2C7F5FF20038D146 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195900D2C7F5FF20038D146 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,11 +63,15 @@
 		910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistViewController.swift; sourceTree = "<group>"; };
 		910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistInteractor.swift; sourceTree = "<group>"; };
 		910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistPresenter.swift; sourceTree = "<group>"; };
-		910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistRouter.swift; sourceTree = "<group>"; };
+		910DBF6B2C7CB7AE00DB7FC8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistAssembler.swift; sourceTree = "<group>"; };
 		910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		910DBF8C2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskToDo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		910DBF8D2C7F580F00DB7FC8 /* TaskToDo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskToDo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9124085A2C807F2800208727 /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
+		9124085C2C807F3C00208727 /* TaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorInteractor.swift; sourceTree = "<group>"; };
+		9124085E2C807F4B00208727 /* TaskEditorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorPresenter.swift; sourceTree = "<group>"; };
+		912408602C807F7300208727 /* TaskEditorAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorAssembler.swift; sourceTree = "<group>"; };
 		9195900D2C7F5FF20038D146 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +165,7 @@
 		910DBF5E2C7CB6BF00DB7FC8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				912408592C807F0200208727 /* TaskEditor */,
 				910DBF622C7CB71800DB7FC8 /* Tasklist */,
 			);
 			path = Modules;
@@ -175,6 +184,7 @@
 			children = (
 				910DBF6F2C7F493500DB7FC8 /* CoreDataManager.swift */,
 				9195900D2C7F5FF20038D146 /* APIService.swift */,
+				910DBF6B2C7CB7AE00DB7FC8 /* Router.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -185,10 +195,20 @@
 				910DBF632C7CB74800DB7FC8 /* TasklistViewController.swift */,
 				910DBF652C7CB76000DB7FC8 /* TasklistInteractor.swift */,
 				910DBF672C7CB77200DB7FC8 /* TasklistPresenter.swift */,
-				910DBF6B2C7CB7AE00DB7FC8 /* TasklistRouter.swift */,
 				910DBF6D2C7F46AE00DB7FC8 /* TasklistAssembler.swift */,
 			);
 			path = Tasklist;
+			sourceTree = "<group>";
+		};
+		912408592C807F0200208727 /* TaskEditor */ = {
+			isa = PBXGroup;
+			children = (
+				9124085A2C807F2800208727 /* TaskEditorViewController.swift */,
+				9124085C2C807F3C00208727 /* TaskEditorInteractor.swift */,
+				9124085E2C807F4B00208727 /* TaskEditorPresenter.swift */,
+				912408602C807F7300208727 /* TaskEditorAssembler.swift */,
+			);
+			path = TaskEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +347,13 @@
 				910DBF352C7CA9E600DB7FC8 /* ToDoViperCoreData.xcdatamodeld in Sources */,
 				910DBF8F2C7F581000DB7FC8 /* TaskToDo+CoreDataProperties.swift in Sources */,
 				910DBF2B2C7CA9E600DB7FC8 /* AppDelegate.swift in Sources */,
-				910DBF6C2C7CB7AE00DB7FC8 /* TasklistRouter.swift in Sources */,
+				910DBF6C2C7CB7AE00DB7FC8 /* Router.swift in Sources */,
 				910DBF8E2C7F580F00DB7FC8 /* TaskToDo+CoreDataClass.swift in Sources */,
+				9124085D2C807F3C00208727 /* TaskEditorInteractor.swift in Sources */,
 				9195900E2C7F5FF20038D146 /* APIService.swift in Sources */,
+				9124085B2C807F2800208727 /* TaskEditorViewController.swift in Sources */,
+				9124085F2C807F4B00208727 /* TaskEditorPresenter.swift in Sources */,
+				912408612C807F7300208727 /* TaskEditorAssembler.swift in Sources */,
 				910DBF6E2C7F46AE00DB7FC8 /* TasklistAssembler.swift in Sources */,
 				910DBF702C7F493500DB7FC8 /* CoreDataManager.swift in Sources */,
 				910DBF2D2C7CA9E600DB7FC8 /* SceneDelegate.swift in Sources */,

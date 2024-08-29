@@ -19,13 +19,14 @@ final class TasklistAssembler: ITasklistAssembler {
 		let viewController = TasklistViewController()
 		let presenter = TasklistPresenter()
 		let interactor = TasklistInteractor(coreDataManager: coreDataManager, apiService: apiService)
-		let router = TasklistRouter()
+		let router = Router()
 
 		viewController.presenter = presenter
 		presenter.view = viewController
 		presenter.interactor = interactor
 		presenter.router = router
 		interactor.presenter = presenter
+		router.tasklistVC = viewController
 
 		return viewController
 	}

@@ -19,7 +19,7 @@ final class TasklistPresenter: ITasklistPresenter {
 
 	weak var view: ITasklistViewController?
 	var interactor: ITasklistInteractor?
-	var router: ITasklistRouter?
+	var router: IRouter?
 
 	func displayTasks(tasks: [TaskToDo]) {
 		view?.displayTasks(tasks)

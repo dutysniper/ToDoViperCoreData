@@ -18,45 +18,56 @@ final class TasklistInteractor: ITasklistInteractor {
 	private var coreDataManager: ICoreDataManager
 	private var apiService: IAPIService
 
+	private let userDefaults = UserDefaults.standard
+	private let firstLaunchKey = "isFirstLaunch"
+
 	init(coreDataManager: ICoreDataManager, apiService: IAPIService) {
 		self.coreDataManager = coreDataManager
 		self.apiService = apiService
 	}
 
 	func fetchTasks() {
-		apiService.fetchTasks { [weak self] result in
-			switch result {
-			case .success(let tasksDTO):
-				print("tasks:")
-				print(tasksDTO)
+		let isFirstLaunch = !userDefaults.bool(forKey: firstLaunchKey)
 
-				// Save tasks to CoreData
-				DispatchQueue.global(qos: .background).async {
-					for taskDTO in tasksDTO {
-						_ = self?.coreDataManager.createTask(
-							title: taskDTO.todo,
-							details: "",
-							isCompleted: taskDTO.completed
-						)
+		if isFirstLaunch {
+			// Fetch tasks from API on first launch
+			apiService.fetchTasks { [weak self] result in
+				switch result {
+				case .success(let tasksDTO):
+					DispatchQueue.global(qos: .background).async {
+						for taskDTO in tasksDTO {
+							_ = self?.coreDataManager.createTask(
+								title: taskDTO.todo,
+								details: "",
+								isCompleted: taskDTO.completed
+							)
+						}
+
+						self?.userDefaults.set(true, forKey: self?.firstLaunchKey ?? "isFirstLaunch")
+						self?.userDefaults.synchronize()
+
+						let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
+						DispatchQueue.main.async {
+							self?.presenter?.displayTasks(tasks: allTasks)
+						}
 					}
 
-					let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
-
-					DispatchQueue.main.async {
-						self?.presenter?.displayTasks(tasks: allTasks)
-					}
+				case .failure(let error):
+					print("Failed to fetch tasks from API: \(error)")
+					self?.loadTasksFromCoreData()
 				}
+			}
+		} else {
+			// Fetch tasks from Core Data on subsequent launches
+			loadTasksFromCoreData()
+		}
+	}
 
-			case .failure(let error):
-				print("Failed to fetch tasks from API: \(error)")
-
-				DispatchQueue.global(qos: .background).async {
-					let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
-
-					DispatchQueue.main.async {
-						self?.presenter?.displayTasks(tasks: allTasks)
-					}
-				}
+	private func loadTasksFromCoreData() {
+		DispatchQueue.global(qos: .background).async { [weak self] in
+			let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
+			DispatchQueue.main.async {
+				self?.presenter?.displayTasks(tasks: allTasks)
 			}
 		}
 	}
@@ -65,9 +76,8 @@ final class TasklistInteractor: ITasklistInteractor {
 		DispatchQueue.global(qos: .background).async { [weak self] in
 			guard let self = self else { return }
 			self.coreDataManager.deleteTask(task)
-
 			DispatchQueue.main.async {
-				self.fetchTasks()
+				self.loadTasksFromCoreData()
 			}
 		}
 	}
@@ -80,7 +90,6 @@ final class TasklistInteractor: ITasklistInteractor {
 				details: description,
 				isCompleted: false
 			)
-
 			DispatchQueue.main.async {
 				self.fetchTasks()
 			}

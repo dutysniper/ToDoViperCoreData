@@ -37,12 +37,20 @@ final class TasklistViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	// MARK: - Life Cycle VC
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupUI()
 		presenter?.fetchTasks()
+		print("")
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		tableViewTasklist.reloadData()
+
+	}
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		layout()
@@ -101,7 +109,6 @@ final class TasklistViewController: UIViewController {
 
 		alertController.addAction(saveAction)
 		alertController.addAction(cancelAction)
-
 		present(alertController, animated: true, completion: nil)
 	}
 
@@ -159,6 +166,7 @@ extension TasklistViewController: UITableViewDelegate, UITableViewDataSource {
 
 		var cellConfiguration = UIListContentConfiguration.cell()
 		cellConfiguration.text = task.title
+		cellConfiguration.secondaryText = task.createdAt?.formatted()
 
 		cell.contentConfiguration = cellConfiguration
 		cell.accessoryType = task.isCompleted ? .checkmark : .none
