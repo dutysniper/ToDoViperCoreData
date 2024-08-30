@@ -74,7 +74,3 @@ open ToDoViperCoreData.xcodeproj
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue with suggestions and improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
