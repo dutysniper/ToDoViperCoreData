@@ -44,9 +44,6 @@ The application follows the VIPER architecture, which stands for:
 ### Networking
 - **URLSession**: Implements basic networking tasks for API interactions.
 
-### Dependency Management
-- **CocoaPods** (if applicable): Used for managing third-party dependencies.
-
 ### Unit Testing
 - **XCTest**: The app includes unit tests to ensure the stability and reliability of the code, focusing on testing the business logic in the Interactor and Presenter layers.
 
