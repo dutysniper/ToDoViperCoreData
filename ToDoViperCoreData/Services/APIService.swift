@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Протокол для взаимодействия с апи сервисом
 protocol IAPIService {
 	func fetchTasks(completion: @escaping (Result<[TaskDTO], Error>) -> Void)
 }
 
+/// Апи сервис для первоначальной загрузки данных с бэка
 final class APIService: IAPIService {
 	func fetchTasks(completion: @escaping (Result<[TaskDTO], Error>) -> Void) {
 		let url = URL(string: "https://dummyjson.com/todos")!
@@ -41,7 +43,7 @@ final class APIService: IAPIService {
 }
 
 
-// Модель для задачи из API
+/// Модель для задачи из API
 struct TaskDTO: Decodable {
 	let id: Int
 	let todo: String  // соответствие с полем "todo" в JSON
@@ -54,7 +56,7 @@ struct TaskDTO: Decodable {
 	}
 }
 
-// Модель для корневого JSON объекта
+/// Модель для корневого JSON объекта
 struct TaskListResponse: Decodable {
 	let todos: [TaskDTO]
 	let total: Int

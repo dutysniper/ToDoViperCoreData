@@ -7,10 +7,12 @@
 
 import Foundation
 
+/// Интерфейс для взаимодействия с роутером
 protocol IRouter {
 	func navigateToTaskDetail(_ task: TaskToDo)
 }
 
+/// Роутер для навигации
 final class Router: IRouter {
 	weak var tasklistVC: TasklistViewController?
 

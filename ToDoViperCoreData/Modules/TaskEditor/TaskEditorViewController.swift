@@ -26,7 +26,7 @@ final class TaskEditorViewController: UIViewController {
 	private lazy var textViewDescription: UITextView = makeTextView()
 	private lazy var buttonSave: UIButton = makeButton()
 	private lazy var switchIsCompleted: UISwitch = makeSwitch()
-
+	private lazy var labelIsCompleted: UILabel = makeLabel()
 	// MARK: - Initialization
 
 	init() {
@@ -79,10 +79,12 @@ extension TaskEditorViewController: ITaskEditorViewController {
 private extension TaskEditorViewController {
 	/// Метод для настройки UI
 	func setupUI() {
+		view.backgroundColor = .systemBackground
 		view.addSubview(textFieldTitle)
 		view.addSubview(textViewDescription)
 		view.addSubview(switchIsCompleted)
 		view.addSubview(buttonSave)
+		view.addSubview(labelIsCompleted)
 	}
 	/// Метод для создания текстфилда
 	func makeTextField() -> UITextField {
@@ -117,6 +119,19 @@ private extension TaskEditorViewController {
 
 		return switchIsCompleted
 
+	}
+
+	/// Метод для создания label
+	func makeLabel() -> UILabel {
+		let label = UILabel()
+
+		label.text = "Completed"
+		label.font = UIFont.systemFont(ofSize: 16)
+		label.textColor = .label
+
+		label.translatesAutoresizingMaskIntoConstraints = false
+
+		return label
 	}
 
 	/// Метод для создания кнопки
@@ -156,7 +171,10 @@ private extension TaskEditorViewController {
 			textViewDescription.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 			textViewDescription.heightAnchor.constraint(equalToConstant: 150),
 
-			switchIsCompleted.topAnchor.constraint(equalTo: textViewDescription.bottomAnchor, constant: 20),
+			labelIsCompleted.topAnchor.constraint(equalTo: textViewDescription.bottomAnchor, constant: 20),
+			labelIsCompleted.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+
+			switchIsCompleted.topAnchor.constraint(equalTo: labelIsCompleted.bottomAnchor, constant: 8),
 			switchIsCompleted.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 
 			buttonSave.topAnchor.constraint(equalTo: switchIsCompleted.bottomAnchor, constant: 40),

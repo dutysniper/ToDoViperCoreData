@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Интерфейс для взаимодействия с интерактором
 protocol ITasklistInteractor: AnyObject {
 	func fetchTasks()
 	func deleteTask(_ task: TaskToDo)
@@ -26,6 +27,7 @@ final class TasklistInteractor: ITasklistInteractor {
 		self.apiService = apiService
 	}
 
+	/// Метод для загрузки Тасок из Апи или с корДаты
 	func fetchTasks() {
 		let isFirstLaunch = !userDefaults.bool(forKey: firstLaunchKey)
 
@@ -63,6 +65,7 @@ final class TasklistInteractor: ITasklistInteractor {
 		}
 	}
 
+	/// Метод для загрузки тасок из КорДаты
 	private func loadTasksFromCoreData() {
 		DispatchQueue.global(qos: .background).async { [weak self] in
 			let allTasks = self?.coreDataManager.fetchAllTasks() ?? []
@@ -72,6 +75,7 @@ final class TasklistInteractor: ITasklistInteractor {
 		}
 	}
 
+	/// Метод для удаления таски
 	func deleteTask(_ task: TaskToDo) {
 		DispatchQueue.global(qos: .background).async { [weak self] in
 			guard let self = self else { return }
@@ -82,6 +86,7 @@ final class TasklistInteractor: ITasklistInteractor {
 		}
 	}
 
+	/// Метод для добавления таски
 	func addTask(title: String, description: String) {
 		DispatchQueue.global(qos: .background).async { [weak self] in
 			guard let self = self else { return }

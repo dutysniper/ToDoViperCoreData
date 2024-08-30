@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Интерфейс для взаимодействия с VC
 protocol ITasklistViewController: AnyObject {
 	func displayTasks(_ tasks: [TaskToDo])
 	func addTaskToView(_ task: TaskToDo)
@@ -59,6 +60,7 @@ final class TasklistViewController: UIViewController {
 	// MARK: - Private methods
 
 	private func setupUI() {
+		view.backgroundColor = .systemBackground
 		title = "ToDo List"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			barButtonSystemItem: .add,
@@ -71,7 +73,7 @@ final class TasklistViewController: UIViewController {
 		tableViewTasklist.delegate = self
 		tableViewTasklist.dataSource = self
 	}
-
+	/// Метод для создания TableView
 	private func makeTableView() -> UITableView {
 		let tableView = UITableView()
 		tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +114,7 @@ final class TasklistViewController: UIViewController {
 		present(alertController, animated: true, completion: nil)
 	}
 
+	/// Метод для расстановки констрейнтов
 	private func layout() {
 		NSLayoutConstraint.activate([
 			tableViewTasklist.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
