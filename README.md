@@ -13,8 +13,12 @@ ToDoViperCoreData is a task management application that demonstrates the usage o
 
 ## Screenshots
 
-![Light Mode](screenshots/light_mode.png)
-![Dark Mode](screenshots/dark_mode.png)
+<img width="432" alt="Снимок экрана 2024-08-30 в 13 27 21" src="https://github.com/user-attachments/assets/2f1948a6-778c-460b-bc84-f0948850c135">
+
+<img width="430" alt="Снимок экрана 2024-08-30 в 13 28 06" src="https://github.com/user-attachments/assets/3f7a4af5-064c-4bcc-9444-ee73c2644374">
+<img width="433" alt="Снимок экрана 2024-08-30 в 13 28 32" src="https://github.com/user-attachments/assets/19bd7fc1-d96f-47ca-90f1-aec4886d452e">
+
+<img width="440" alt="Снимок экрана 2024-08-30 в 13 29 17" src="https://github.com/user-attachments/assets/c9eb6cdc-d60d-4fc1-a9e5-450968ca4ca4">
 
 ## VIPER Architecture
 
@@ -51,7 +55,6 @@ The application follows the VIPER architecture, which stands for:
 To run this project, you will need:
 
 1. **Xcode**: Version 12.0 or later.
-2. **CocoaPods** (if you're using any third-party libraries).
 
 Clone the repository and open the `.xcodeproj` file in Xcode:
 
@@ -59,13 +62,6 @@ Clone the repository and open the `.xcodeproj` file in Xcode:
 git clone https://github.com/username/ToDoViperCoreData.git
 cd ToDoViperCoreData
 open ToDoViperCoreData.xcodeproj
-```
-
-If you are using CocoaPods:
-
-```bash
-pod install
-open ToDoViperCoreData.xcworkspace
 ```
 
 ## Usage
@@ -82,10 +78,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any inquiries or questions, feel free to reach out:
-
-- Email: yourname@example.com
-- GitHub: [yourusername](https://github.com/yourusername)
