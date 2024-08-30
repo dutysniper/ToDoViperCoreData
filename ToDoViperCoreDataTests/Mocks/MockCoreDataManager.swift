@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 @testable import ToDoViperCoreData
 
 final class MockCoreDataManager: ICoreDataManager {
@@ -16,16 +17,13 @@ final class MockCoreDataManager: ICoreDataManager {
 	var fetchTaskByIdCalled = false
 	var saveContextCalled = false
 
-	var tasks: [TaskToDo] = []
+	var tasks: [MockTaskToDo] = []
 
 	func createTask(title: String, details: String, isCompleted: Bool) -> TaskToDo? {
 		createTaskCalled = true
-		let task = TaskToDo()
-		task.id = UUID().uuidString
-		task.title = title
-		task.details = details
-		task.isCompleted = isCompleted
+		let task = MockTaskToDo(title: title, details: details, isCompleted: isCompleted)
 		tasks.append(task)
+		
 		return task
 	}
 
@@ -43,9 +41,11 @@ final class MockCoreDataManager: ICoreDataManager {
 
 	func updateTask(_ task: TaskToDo, title: String, details: String, isCompleted: Bool) {
 		updateTaskCalled = true
-		task.title = title
-		task.details = details
-		task.isCompleted = isCompleted
+		if let mockTask = task as? MockTaskToDo {
+			mockTask.title = title
+			mockTask.details = details
+			mockTask.isCompleted = isCompleted
+		}
 	}
 
 	func fetchTask(byId id: String) -> TaskToDo? {
@@ -55,5 +55,43 @@ final class MockCoreDataManager: ICoreDataManager {
 
 	func saveContext() {
 		saveContextCalled = true
+	}
+}
+
+final class MockTaskToDo: TaskToDo {
+
+	private var mockId: String?
+	private var mockTitle: String?
+	private var mockDetails: String?
+	private var mockIsCompleted: Bool = false
+
+	override var id: String? {
+		get { return mockId }
+		set { mockId = newValue }
+	}
+
+	override var title: String? {
+		get { return mockTitle }
+		set { mockTitle = newValue }
+	}
+
+	override var details: String? {
+		get { return mockDetails }
+		set { mockDetails = newValue }
+	}
+
+	override var isCompleted: Bool {
+		get { return mockIsCompleted }
+		set { mockIsCompleted = newValue }
+	}
+
+	// Фабричный метод для создания экземпляра MockTaskToDo
+	static func createMockTask(id: String? = nil, title: String? = nil, details: String? = nil, isCompleted: Bool = false, context: NSManagedObjectContext) -> MockTaskToDo {
+		let task = NSEntityDescription.insertNewObject(forEntityName: "TaskToDo", into: context) as! MockTaskToDo
+		task.mockId = id
+		task.mockTitle = title
+		task.mockDetails = details
+		task.mockIsCompleted = isCompleted
+		return task
 	}
 }

@@ -14,7 +14,7 @@ final class MockTasklistPresenter: ITasklistPresenter {
 	var didDeleteTaskCalled = false
 	var didAddTaskCalled = false
 
-	var displayedTasks: [TaskToDo] = []
+	var displayedTasks: [MockTaskToDo] = []
 
 	func fetchTasks() {
 		fetchTasksCalled = true
@@ -22,7 +22,7 @@ final class MockTasklistPresenter: ITasklistPresenter {
 
 	func displayTasks(tasks: [TaskToDo]) {
 		displayTasksCalled = true
-		displayedTasks = tasks
+		displayedTasks = tasks.map { $0 as! MockTaskToDo }
 	}
 
 	func didSelectTask(_ task: TaskToDo) {

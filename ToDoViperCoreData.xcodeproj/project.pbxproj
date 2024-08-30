@@ -33,7 +33,6 @@
 		912408702C80ABFE00208727 /* MockTaskEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9124086F2C80ABFE00208727 /* MockTaskEditorInteractor.swift */; };
 		912408722C80AC4500208727 /* MockCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408712C80AC4500208727 /* MockCoreDataManager.swift */; };
 		912408742C80B1E800208727 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408732C80B1E800208727 /* MockRouter.swift */; };
-		912408762C80B6D300208727 /* TasklistInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408752C80B6D300208727 /* TasklistInteractorTests.swift */; };
 		912408782C80B74000208727 /* MockTasklistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408772C80B74000208727 /* MockTasklistPresenter.swift */; };
 		9124087A2C80B92C00208727 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912408792C80B92C00208727 /* MockApiService.swift */; };
 		9195900E2C7F5FF20038D146 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195900D2C7F5FF20038D146 /* APIService.swift */; };
@@ -87,7 +86,6 @@
 		9124086F2C80ABFE00208727 /* MockTaskEditorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTaskEditorInteractor.swift; sourceTree = "<group>"; };
 		912408712C80AC4500208727 /* MockCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataManager.swift; sourceTree = "<group>"; };
 		912408732C80B1E800208727 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
-		912408752C80B6D300208727 /* TasklistInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklistInteractorTests.swift; sourceTree = "<group>"; };
 		912408772C80B74000208727 /* MockTasklistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTasklistPresenter.swift; sourceTree = "<group>"; };
 		912408792C80B92C00208727 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		9195900D2C7F5FF20038D146 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 		912408622C80A9C200208727 /* TasklistModuleTests */ = {
 			isa = PBXGroup;
 			children = (
-				912408752C80B6D300208727 /* TasklistInteractorTests.swift */,
 			);
 			path = TasklistModuleTests;
 			sourceTree = "<group>";
@@ -420,7 +417,6 @@
 				910DBF452C7CA9E800DB7FC8 /* TasklistPresenterTests.swift in Sources */,
 				9124086B2C80AB5200208727 /* MockTasklistInteracor.swift in Sources */,
 				912408722C80AC4500208727 /* MockCoreDataManager.swift in Sources */,
-				912408762C80B6D300208727 /* TasklistInteractorTests.swift in Sources */,
 				912408782C80B74000208727 /* MockTasklistPresenter.swift in Sources */,
 				912408742C80B1E800208727 /* MockRouter.swift in Sources */,
 				9124087A2C80B92C00208727 /* MockApiService.swift in Sources */,
